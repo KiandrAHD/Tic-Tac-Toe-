@@ -1,0 +1,215 @@
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --primary-color: #3a86ff;
+    --secondary-color: #ffbe0b;
+    --border-color: #dee2e6;
+    --cell-hover: #e9ecef;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f8f9fa;
+    --primary-color: #48cae4;
+    --secondary-color: #ffaa00;
+    --border-color: #495057;
+    --cell-hover: #343a40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    opacity: 0.9;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+}
+
+.game-info {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.game-container {
+    background-color: var(--cell-hover);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.cell {
+    background-color: var(--bg-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: var(--cell-hover);
+    transform: scale(1.03);
+}
+
+.cell.x::before {
+    content: '✕';
+    color: var(--primary-color);
+}
+
+.cell.o::before {
+    content: '○';
+    color: var(--secondary-color);
+}
+
+.cell.winner {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.score {
+    background-color: var(--cell-hover);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.x-score {
+    color: var(--primary-color);
+}
+
+.o-score {
+    color: var(--secondary-color);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.reset {
+    background-color: #6c757d;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    min-height: 24px;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .game-info {
+        font-size: 1.2rem;
+    }
+
+    .cell {
+        font-size: 2.5rem;
+    }
+
+    .game-container {
+        padding: 20px;
+    }
+}

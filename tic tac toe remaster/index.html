@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe dengan Tema Ganda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i>⚫️</i> Ganti Tema
+    </button>
+
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+
+        <div class="game-info" id="gameInfo">Giliran Pemain X</div>
+
+        <div class="game-container">
+            <div class="scoreboard">
+                <div class="score x-score">X: <span id="xScore">0</span></div>
+                <div class="score o-score">O: <span id="oScore">0</span></div>
+            </div>
+
+            <div class="board" id="board"></div>
+
+            <div class="controls">
+                <button class="reset" id="resetGame">Ulangi Permainan</button>
+                <button class="reset" id="resetScores">Reset Skor</button>
+            </div>
+
+            <div class="status" id="status"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </head>
+
+</html>
